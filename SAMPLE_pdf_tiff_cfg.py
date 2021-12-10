@@ -1,4 +1,4 @@
-mailserver = "mail.aegishub.net"
+mailserver = "MAIL.SERVER.ADDRESS"
 emailaddress = "pdftiff@yourdomain"
 maillogin = "pdftiff"
 mailpassword = "yourpassword"
