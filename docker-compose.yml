@@ -1,0 +1,11 @@
+version: "3"
+services:
+  pdf-tiff:
+    build: .
+    image: pdf-tiff:101221
+    container_name: pdf-tiff
+    restart: unless-stopped
+    network_mode: "host"
+    volumes:
+     - ./pdf_tiff_cfg.py:/opt/pdf_tiff/pdf_tiff_cfg.py
+     - ./policy.xml:/etc/ImageMagick-6/policy.xml
