@@ -33,8 +33,8 @@ def reply_email(original, newattached):
     reply.attach(MIMEText(reply_html, 'html'))
     new.attach(reply)
     for attach in newattached:
-        attached = MIMEApplication(newattach[attach], _subtype="tiff")
-        attached.add_header('Content-Disposition', 'attachment', filename=attach[:-4] + ".tiff")
+        attached = MIMEApplication(newattach[attach], _subtype="pdf")
+        attached.add_header('Content-Disposition', 'attachment', filename=attach[:-4] + ".pdf")
         new.attach(attached)
 
     new["Message-ID"] = emailutils.make_msgid()
@@ -91,7 +91,7 @@ if __name__ == '__main__':
                             for idx in range(library.MagickGetNumberImages(img.wand)):
                                 library.MagickSetIteratorIndex(img.wand, idx)
                                 img.alpha_channel = 'off'
-                            newattach[payload.get_filename()] = img.make_blob('tiff')
+                            newattach[payload.get_filename()] = img.make_blob('pdf')
                             logging.info("Файл " + payload.get_filename() + " преобразован")
                 if pdf:
                     reply_email(mailbody, newattach)
